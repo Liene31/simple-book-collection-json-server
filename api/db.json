@@ -3,25 +3,25 @@
     {
       "id": 1,
       "title": "1984",
-      "author": "George Orwell",
+      "author": "george orwell",
       "rating": 4.8
     },
     {
       "id": 2,
-      "title": "Dune",
-      "author": "Frank Herbert",
+      "title": "dune",
+      "author": "frank herbert",
       "rating": 4.6
     },
     {
       "id": 3,
-      "title": "The Hobbit",
-      "author": "J.R.R. Tolkien",
+      "title": "the hobbit",
+      "author": "j.r.r. tolkien",
       "rating": 4.9
     },
     {
       "id": 4,
-      "title": "Pride and Prejudice",
-      "author": "Jane Austen",
+      "title": "pride and prejudice",
+      "author": "jane austen",
       "rating": 4.7
     }
   ]

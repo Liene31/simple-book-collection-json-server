@@ -1,8 +1,14 @@
 const table = document.getElementById("table");
+const errorMessagePara = document.getElementById("error-message");
+const searchInput = document.getElementById("search-input");
+const searchBtn = document.getElementById("search-btn");
+
 let booksArray = [];
 
-function getBooks() {
-  const urlApi = "http://localhost:3000/books";
+function getBooks(query = "") {
+  const urlApi = query
+    ? `http://localhost:3000/books?title=${query}`
+    : "http://localhost:3000/books";
   axios
     .get(urlApi)
     .then((res) => {
@@ -13,10 +19,12 @@ function getBooks() {
     })
     .catch((error) => {
       console.error(error.message);
+      errorMessagePara.textContent = "Nothing to show";
     });
 }
 
 function displayBooks(array) {
+  table.replaceChildren();
   array.forEach((book) => {
     console.log(book);
     const tr = document.createElement("tr");
@@ -48,5 +56,13 @@ function displayBooks(array) {
     table.append(tr);
   });
 }
+
+function searchBook() {
+  const searchedBook = searchInput.value.toLowerCase().trim();
+  console.log(searchedBook);
+  getBooks(searchedBook);
+}
+
+searchBtn.addEventListener("click", searchBook);
 
 getBooks();
