@@ -32,12 +32,14 @@ table {
     border: 1px solid rgb(160 160 160);
     padding: 8px 10px;
   }
-
-  td:last-of-type {
-    text-align: center;
-  }
 }
 
-button {
-  cursor: pointer;
+.action-btn {
+  display: flex;
+  gap: 0.5rem;
+
+  button {
+    cursor: pointer;
+    padding: 0.2rem;
+  }
 }

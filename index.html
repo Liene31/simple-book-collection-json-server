@@ -3,6 +3,8 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- Axios -->
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
     <!-- JS -->
     <script defer src="./main.js"></script>
     <!-- CSS -->
@@ -32,22 +34,7 @@
               <th>Actions</th>
             </tr>
           </thead>
-          <tbody id="table">
-            <tr>
-              <th>1</th>
-              <td>1984</td>
-              <td>George Orwell</td>
-              <td>4.8 ⭐</td>
-              <td><button>🖊️</button> <button>🗑️</button></td>
-            </tr>
-            <tr>
-              <th>2</th>
-              <td>Dune</td>
-              <td>Frank Herbert</td>
-              <td>4.6 ⭐</td>
-              <td><button>🖊️</button> <button>🗑️</button></td>
-            </tr>
-          </tbody>
+          <tbody id="table"></tbody>
         </table>
       </section>
       <button type="button">Add Book</button>
