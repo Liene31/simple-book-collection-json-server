@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- JS -->
+    <script defer src="./main.js"></script>
+    <!-- CSS -->
+    <link rel="stylesheet" href="style.css" />
+    <title>My Book Collection</title>
+  </head>
+  <body>
+    <header>
+      <h1>My Book Collection</h1>
+    </header>
+    <main>
+      <section class="search-section">
+        <form>
+          <input type="text" placeholder="search a book" id="search-input" />
+          <button type="button">Search</button>
+        </form>
+      </section>
+
+      <section class="book-section">
+        <table>
+          <thead>
+            <tr>
+              <th>ID</th>
+              <th>Title</th>
+              <th>Author</th>
+              <th>Rating</th>
+              <th>Actions</th>
+            </tr>
+          </thead>
+          <tbody id="table">
+            <tr>
+              <th>1</th>
+              <td>1984</td>
+              <td>George Orwell</td>
+              <td>4.8 ⭐</td>
+              <td><button>🖊️</button> <button>🗑️</button></td>
+            </tr>
+            <tr>
+              <th>2</th>
+              <td>Dune</td>
+              <td>Frank Herbert</td>
+              <td>4.6 ⭐</td>
+              <td><button>🖊️</button> <button>🗑️</button></td>
+            </tr>
+          </tbody>
+        </table>
+      </section>
+      <button type="button">Add Book</button>
+    </main>
+  </body>
+</html>

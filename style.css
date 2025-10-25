@@ -1,0 +1,43 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body,
+main {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+}
+
+table {
+  border-collapse: collapse;
+  border: none;
+  font-family: sans-serif;
+  font-size: 0.8rem;
+  letter-spacing: 1px;
+
+  thead {
+    background-color: rgb(228 240 245);
+  }
+
+  tbody > tr:nth-of-type(even) {
+    background-color: rgb(237 238 242);
+  }
+
+  th,
+  td {
+    border: 1px solid rgb(160 160 160);
+    padding: 8px 10px;
+  }
+
+  td:last-of-type {
+    text-align: center;
+  }
+}
+
+button {
+  cursor: pointer;
+}
