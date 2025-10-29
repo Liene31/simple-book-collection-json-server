@@ -1,7 +1,13 @@
 const table = document.getElementById("table");
 const errorMessagePara = document.getElementById("error-message");
 const searchInput = document.getElementById("search-input");
+const titleInput = document.getElementById("title");
+const authorInput = document.getElementById("author");
+const ratingInput = document.getElementById("rating");
+const bookInputForm = document.getElementById("book-input-form");
 const searchBtn = document.getElementById("search-btn");
+const addBookBtn = document.getElementById("add-book-btn");
+const addToListBtn = document.getElementById("add-to-list-btn");
 
 let booksArray = [];
 
@@ -12,10 +18,8 @@ function getBooks(query = "") {
   axios
     .get(urlApi)
     .then((res) => {
-      if (res.status === 200) {
-        booksArray = res.data;
-        displayBooks(booksArray);
-      }
+      booksArray = res.data;
+      displayBooks(booksArray);
     })
     .catch((error) => {
       console.error(error.message);
@@ -63,6 +67,35 @@ function searchBook() {
   getBooks(searchedBook);
 }
 
+function displayBookInput() {
+  bookInputForm.style.display = "flex";
+}
+
+function addToList(e) {
+  e.preventDefault();
+
+  const bookTitle = titleInput.value.toLowerCase().trim();
+  const bookAuthor = authorInput.value.toLowerCase().trim();
+  const bookRating = ratingInput.valueAsNumber;
+
+  const newBook = {
+    title: bookTitle,
+    author: bookAuthor,
+    rating: bookRating,
+  };
+
+  axios
+    .post("http://localhost:3000/books", newBook)
+    .then((res) => {
+      console.log(res);
+    })
+    .catch((error) => {
+      console.error(error.message);
+    });
+}
+
 searchBtn.addEventListener("click", searchBook);
+addBookBtn.addEventListener("click", displayBookInput);
+addToListBtn.addEventListener("click", addToList);
 
 getBooks();

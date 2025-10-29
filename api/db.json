@@ -1,28 +1,70 @@
 {
   "books": [
     {
-      "id": 1,
+      "id": "1",
       "title": "1984",
       "author": "george orwell",
       "rating": 4.8
     },
     {
-      "id": 2,
+      "id": "2",
       "title": "dune",
       "author": "frank herbert",
       "rating": 4.6
     },
     {
-      "id": 3,
+      "id": "3",
       "title": "the hobbit",
       "author": "j.r.r. tolkien",
       "rating": 4.9
     },
     {
-      "id": 4,
+      "id": "4",
       "title": "pride and prejudice",
       "author": "jane austen",
       "rating": 4.7
+    },
+    {
+      "id": "5671",
+      "title": "",
+      "author": "",
+      "rating": null
+    },
+    {
+      "id": "5570",
+      "title": "the great gatsby",
+      "author": "f. scott fitzgerald",
+      "rating": 4.5
+    },
+    {
+      "id": "ccf1",
+      "title": "moby dick",
+      "author": "herman melville",
+      "rating": 4.1
+    },
+    {
+      "id": "8569",
+      "title": "the alchemist",
+      "author": "paulo coelho",
+      "rating": 4.3
+    },
+    {
+      "id": "1e5f",
+      "title": "",
+      "author": "",
+      "rating": null
+    },
+    {
+      "id": "eb03",
+      "title": "",
+      "author": "",
+      "rating": null
+    },
+    {
+      "id": "9974",
+      "title": "moby dick",
+      "author": "herman melville",
+      "rating": 4.3
     }
   ]
 }

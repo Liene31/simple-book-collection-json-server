@@ -44,3 +44,24 @@ table {
     padding: 0.2rem;
   }
 }
+
+.add-book {
+  width: 450px;
+  form {
+    display: none;
+    flex-direction: column;
+    gap: 0.5rem;
+    width: 100%;
+    margin-bottom: 2rem;
+
+    input {
+      padding: 0.3rem;
+      border-radius: 5px;
+      border: 1px solid black;
+    }
+
+    button {
+      align-self: center;
+    }
+  }
+}
