@@ -54,6 +54,10 @@ function displayBooks(array) {
     btnEdit.textContent = "🖊️";
     const btnDelete = document.createElement("button");
     btnDelete.textContent = "🗑️";
+    btnDelete.addEventListener("click", (e) => {
+      e.preventDefault();
+      deleteBook(book.id);
+    });
     tdActions.append(btnEdit, btnDelete);
 
     tr.append(th, tdTitle, tdAuthor, tdRating, tdActions);
@@ -61,19 +65,31 @@ function displayBooks(array) {
   });
 }
 
-function searchBook() {
+function searchBook(e) {
+  e.preventDefault();
   const searchedBook = searchInput.value.toLowerCase().trim();
   console.log(searchedBook);
   getBooks(searchedBook);
 }
 
-function displayBookInput() {
+function displayBookInput(e) {
+  e.preventDefault();
   bookInputForm.style.display = "flex";
+}
+
+function deleteBook(id) {
+  console.log(id);
+  axios
+    .delete(`http://localhost:3000/books/${id}`)
+    .then(() => {
+      console.log("book deleted");
+      getBooks();
+    })
+    .catch((error) => console.error(error.message));
 }
 
 function addToList(e) {
   e.preventDefault();
-
   const bookTitle = titleInput.value.toLowerCase().trim();
   const bookAuthor = authorInput.value.toLowerCase().trim();
   const bookRating = ratingInput.valueAsNumber;
@@ -86,8 +102,9 @@ function addToList(e) {
 
   axios
     .post("http://localhost:3000/books", newBook)
-    .then((res) => {
-      console.log(res);
+    .then(() => {
+      console.log("new book added");
+      getBooks();
     })
     .catch((error) => {
       console.error(error.message);
