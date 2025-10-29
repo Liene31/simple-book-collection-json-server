@@ -72,13 +72,11 @@ function searchBook(e) {
   getBooks(searchedBook);
 }
 
-function displayBookInput(e) {
-  e.preventDefault();
+function displayBookInput() {
   bookInputForm.style.display = "flex";
 }
 
 function deleteBook(id) {
-  console.log(id);
   axios
     .delete(`http://localhost:3000/books/${id}`)
     .then(() => {
@@ -88,8 +86,7 @@ function deleteBook(id) {
     .catch((error) => console.error(error.message));
 }
 
-function addToList(e) {
-  e.preventDefault();
+function addToList() {
   const bookTitle = titleInput.value.toLowerCase().trim();
   const bookAuthor = authorInput.value.toLowerCase().trim();
   const bookRating = ratingInput.valueAsNumber;
@@ -105,6 +102,8 @@ function addToList(e) {
     .then(() => {
       console.log("new book added");
       getBooks();
+      bookInputForm.reset();
+      bookInputForm.style.display = "none";
     })
     .catch((error) => {
       console.error(error.message);

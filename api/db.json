@@ -17,6 +17,12 @@
       "title": "the hobbit",
       "author": "j.r.r. tolkien",
       "rating": 4.9
+    },
+    {
+      "title": "war and peace",
+      "author": "leo tolstoy",
+      "rating": 4.7,
+      "id": 4
     }
   ]
 }
