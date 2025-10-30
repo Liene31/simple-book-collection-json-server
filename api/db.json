@@ -7,22 +7,16 @@
       "rating": 4.8
     },
     {
-      "id": 2,
       "title": "dune",
       "author": "frank herbert",
-      "rating": 4.6
+      "rating": 4.6,
+      "id": 2
     },
     {
-      "id": 3,
-      "title": "the hobbit",
-      "author": "j.r.r. tolkien",
-      "rating": 4.9
-    },
-    {
-      "title": "war and peace",
-      "author": "leo tolstoy",
+      "title": "pride and prejudice",
+      "author": "jane austen",
       "rating": 4.7,
-      "id": 4
+      "id": 3
     }
   ]
 }

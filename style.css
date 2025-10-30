@@ -60,8 +60,13 @@ table {
       border: 1px solid black;
     }
 
-    button {
+    .btn-container {
       align-self: center;
+
+      .add-to-list-btn,
+      .update-btn {
+        display: none;
+      }
     }
   }
 }

@@ -29,7 +29,7 @@ function getBooks(query = "") {
 
 function displayBooks(array) {
   table.replaceChildren();
-  array.forEach((book) => {
+  array.forEach((book, index) => {
     console.log(book);
     const tr = document.createElement("tr");
 
@@ -52,6 +52,10 @@ function displayBooks(array) {
     tdActions.classList.add("action-btn");
     const btnEdit = document.createElement("button");
     btnEdit.textContent = "🖊️";
+    btnEdit.addEventListener("click", (e) => {
+      e.preventDefault();
+      editBook(index);
+    });
     const btnDelete = document.createElement("button");
     btnDelete.textContent = "🗑️";
     btnDelete.addEventListener("click", (e) => {
@@ -74,6 +78,7 @@ function searchBook(e) {
 
 function displayBookInput() {
   bookInputForm.style.display = "flex";
+  addToListBtn.style.display = "block";
 }
 
 function deleteBook(id) {
@@ -86,10 +91,25 @@ function deleteBook(id) {
     .catch((error) => console.error(error.message));
 }
 
+function editBook(index) {
+  console.log(index);
+  displayBookInput();
+  console.log(booksArray[index]);
+  titleInput.value = booksArray[index].title;
+  authorInput.value = booksArray[index].author;
+  ratingInput.valueAsNumber = booksArray[index].rating;
+
+  const bookTitle = titleInput.value.toLowerCase().trim();
+  const bookAuthor = authorInput.value.toLowerCase().trim();
+  const bookRating = ratingInput.value;
+
+  console.log(bookTitle, bookAuthor, bookRating);
+}
+
 function addToList() {
   const bookTitle = titleInput.value.toLowerCase().trim();
   const bookAuthor = authorInput.value.toLowerCase().trim();
-  const bookRating = ratingInput.valueAsNumber;
+  const bookRating = ratingInput.value;
 
   const newBook = {
     title: bookTitle,
@@ -104,6 +124,7 @@ function addToList() {
       getBooks();
       bookInputForm.reset();
       bookInputForm.style.display = "none";
+      addToListBtn.style.display = "block";
     })
     .catch((error) => {
       console.error(error.message);
