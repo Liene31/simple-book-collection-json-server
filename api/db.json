@@ -4,7 +4,7 @@
       "id": 1,
       "title": "1984",
       "author": "george orwell",
-      "rating": 4.8
+      "rating": 4.9
     },
     {
       "title": "dune",
@@ -17,6 +17,24 @@
       "author": "jane austen",
       "rating": 4.7,
       "id": 3
+    },
+    {
+      "title": "the great gatsby",
+      "author": "f. scott fitzgerald",
+      "rating": 5.3,
+      "id": 5
+    },
+    {
+      "title": "crime and punishment",
+      "author": "fyodor dostoevsky",
+      "rating": 3.6,
+      "id": 6
+    },
+    {
+      "title": "the hobbit",
+      "author": "j.r.r. tolkien",
+      "rating": 4.9,
+      "id": 7
     }
   ]
 }

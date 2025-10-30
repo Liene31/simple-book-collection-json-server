@@ -8,6 +8,9 @@ const bookInputForm = document.getElementById("book-input-form");
 const searchBtn = document.getElementById("search-btn");
 const addBookBtn = document.getElementById("add-book-btn");
 const addToListBtn = document.getElementById("add-to-list-btn");
+const updateBtn = document.getElementById("update-btn");
+
+let editingId = null;
 
 let booksArray = [];
 
@@ -54,7 +57,7 @@ function displayBooks(array) {
     btnEdit.textContent = "🖊️";
     btnEdit.addEventListener("click", (e) => {
       e.preventDefault();
-      editBook(index);
+      editBook(index, book.id);
     });
     const btnDelete = document.createElement("button");
     btnDelete.textContent = "🗑️";
@@ -79,6 +82,7 @@ function searchBook(e) {
 function displayBookInput() {
   bookInputForm.style.display = "flex";
   addToListBtn.style.display = "block";
+  updateBtn.style.display = "none";
 }
 
 function deleteBook(id) {
@@ -91,25 +95,21 @@ function deleteBook(id) {
     .catch((error) => console.error(error.message));
 }
 
-function editBook(index) {
-  console.log(index);
+function editBook(index, id) {
+  editingId = id;
   displayBookInput();
+  addToListBtn.style.display = "none";
+  updateBtn.style.display = "flex";
   console.log(booksArray[index]);
   titleInput.value = booksArray[index].title;
   authorInput.value = booksArray[index].author;
   ratingInput.valueAsNumber = booksArray[index].rating;
-
-  const bookTitle = titleInput.value.toLowerCase().trim();
-  const bookAuthor = authorInput.value.toLowerCase().trim();
-  const bookRating = ratingInput.value;
-
-  console.log(bookTitle, bookAuthor, bookRating);
 }
 
 function addToList() {
   const bookTitle = titleInput.value.toLowerCase().trim();
   const bookAuthor = authorInput.value.toLowerCase().trim();
-  const bookRating = ratingInput.value;
+  const bookRating = ratingInput.valueAsNumber;
 
   const newBook = {
     title: bookTitle,
@@ -131,8 +131,38 @@ function addToList() {
     });
 }
 
+function updateBook() {
+  // e.preventDefault();
+  const bookId = editingId;
+  console.log(bookId);
+  const bookTitle = titleInput.value.toLowerCase().trim();
+  const bookAuthor = authorInput.value.toLowerCase().trim();
+  const bookRating = ratingInput.valueAsNumber;
+
+  const updatedBook = {
+    title: bookTitle,
+    author: bookAuthor,
+    rating: bookRating,
+  };
+
+  console.log(updatedBook);
+
+  axios
+    .patch(`http://localhost:3000/books/${bookId}`, updatedBook)
+    .then(() => {
+      console.log("book updated");
+      getBooks();
+      bookInputForm.reset();
+      bookInputForm.style.display = "none";
+    })
+    .catch((error) => {
+      console.error(error.message);
+    });
+}
+
 searchBtn.addEventListener("click", searchBook);
 addBookBtn.addEventListener("click", displayBookInput);
 addToListBtn.addEventListener("click", addToList);
+updateBtn.addEventListener("click", updateBook);
 
 getBooks();
